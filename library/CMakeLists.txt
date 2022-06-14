@@ -2,9 +2,8 @@ cmake_minimum_required(VERSION 3.4)
 project(Library)
 
 set(SOURCE_FILES
-        src/math_helpers.cpp
         src/model/Client.cpp
-        src/model/Address.cpp include/model/Address.h src/model/Vehicle.cpp include/model/Vehicle.h src/model/Rent.cpp include/model/Rent.h)
+        src/model/Address.cpp include/model/Address.h src/model/Parcel.cpp include/model/Parcel.h src/model/ParcelLocker.cpp include/model/ParcelLocker.h src/repository/ParcelRepository.cpp include/repository/ParcelRepository.h src/repository/ParcelLockerRepository.cpp include/repository/ParcelLockerRepository.h src/repository/ClientRepository.cpp include/repository/ClientRepository.h src/repository/Repository.cpp include/repository/Repository.h src/manager/ParcelLockerManager.cpp include/manager/ParcelLockerManager.h src/manager/ClientManager.cpp include/manager/ClientManager.h src/manager/ParcelManager.cpp include/manager/ParcelManager.h src/exception/DoorNotFloundExeption.cpp include/exception/DoorNotFloundExeption.h src/exception/ParcelNotFoundExeption.cpp include/exception/ParcelNotFoundExeption.h src/exception/DoorOcupiedExeption.cpp include/exception/DoorOcupiedExeption.h)
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})
 
@@ -17,7 +16,7 @@ include_directories(
         ${Boost_INCLUDE_DIRS}
 )
 
-set(SOURCE_TEST_FILES test/master.cpp test/ClientTest.cpp test/AddressTest.cpp test/VehicleTest.cpp test/RentTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
+set(SOURCE_TEST_FILES test/master.cpp test/ClientTest.cpp test/AddressTest.cpp test/ParcelTest.cpp test/ParcelLockerTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable (LibraryTest ${SOURCE_TEST_FILES})
 

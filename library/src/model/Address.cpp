@@ -6,10 +6,7 @@
 
 #include <utility>
 
-Address::Address(std::string city, std::string street, std::string numebr) {
-    this->city = std::move(city);
-    this->street = std::move(street);
-    this->number = std::move(numebr);
+Address::Address(std::string city, std::string street, std::string numebr):city(std::move(city)),street(std::move(street)),number(std::move(numebr)) {
 }
 
 const std::string &Address::getCity() const {

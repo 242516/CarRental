@@ -20,7 +20,7 @@ set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 set(CMAKE_CXX_FLAGS_DEBUG "-g3 -gdwarf-4")
 #Ustaw nazwę projektu i język na C++
-project(CarRental)
+project(Paczkomat)
 enable_language(CXX)
 #W specjalnym pliku compile_commands.json można podejrzeć wszystkie operacje kompilatora wraz z parametrami, 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

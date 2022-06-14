@@ -5,36 +5,7 @@
 #include "model/Client.h"
 
 #include <utility>
-Client::Client() {
-}
-std::string Client::getFullClientInfo() {
-    std::string temp = "[";
-    for(Rent *i : currentRents) {
-        temp += i->getRentInfo() + ", ";
-    }
-    if (!currentRents.empty()) {
-        temp.pop_back();
-        temp.pop_back();
-        temp += "]";
-    }
-    return "Client " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo() + " " + temp;
-}
-std::string Client::getClientInfo() {
-//    std::string temp = "[";
-//    for(Rent *i : currentRents) {
-//        temp += i->getRentInfo() + ", ";
-//    }
-//    if (!currentRents.empty()) {
-//        temp.pop_back();
-//        temp.pop_back();
-//        temp += "]";
-//    }
-    return "Client " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
-}
 
-
-Client::Client(std::string firstName, std::string lastName, std::string personalID, Address *address): firstName(std::move(firstName)), lastName(std::move(lastName)), address(address), personalID(std::move(personalID)) {
-}
 
 const std::string &Client::getFirstName() const {
     return firstName;
@@ -57,21 +28,20 @@ void Client::setLastName(const std::string &lastName) {
     }
 }
 
-const std::string &Client::getPersonalId() const {
-    return personalID;
+Client::Client(std::string firstName, std::string lastName, std::string phoneNumber, int id) : firstName(std::move(
+        firstName)), lastName(std::move(lastName)), phoneNumber(std::move(phoneNumber)), id(id) {}
+
+Client::~Client() {
+
 }
 
-Address *Client::getAddress() const {
-    return address;
+const std::string &Client::getPhoneNumber() const {
+    return phoneNumber;
 }
 
-void Client::setAddress(Address *address) {
-    if (address != nullptr) {
-        Client::address = address;
-    }
+int Client::getId() const {
+    return id;
 }
 
-std::vector<Rent *> &Client::getCurrentRents() {
-    return currentRents;
-}
+
 
